@@ -25,7 +25,7 @@ planeMat.normalScale.set(.01,.01)
 
 const planeMesh = new THREE.Mesh(planeGeo, planeMat)
 planeMesh.scale.x = .675
-planeMesh.position.z = -5
+planeMesh.position.z = -3
 planeMesh.position.y = 2
 scene.add(planeMesh)
 
