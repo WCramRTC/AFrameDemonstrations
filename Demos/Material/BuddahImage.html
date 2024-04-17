@@ -2,13 +2,14 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
   </head>
   </script>
   <body>
     <a-scene id="scene">
         <a-entity light></a-entity>
-        <a-entity camera position="0 1.6 0" movement-controls look-controls></a-entity>
-
+        <!-- <a-entity camera position="0 1.6 0" movement-controls look-controls></a-entity> -->
+        <a-camera universal-controls="movementControls: touch; touchEnabled: true;"></a-camera>
 
       <a-sky color="#ECECEC"></a-sky>
     </a-scene>
