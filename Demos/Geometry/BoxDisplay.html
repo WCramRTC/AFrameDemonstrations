@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Style the GUI elements */
+      .gui-container {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 9999;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .button {
+        margin-bottom: 5px;
+        padding: 5px 10px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      .button:hover {
+        background-color: #2980b9;
+      }
+    </style>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@v0.163.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@<version>/examples/jsm/"
+          }
+        }
+      </script>
+      
+  </head>
+  <body>
+    <a-scene id="scene" cursor="rayOrigin: mouse">
+      <a-entity camera="" look-controls="" wasd-controls="" position="2.0857 1.6 -0.37102" rotation="-15.699043586584558 59.734287889159106 0" data-aframe-inspector-original-camera="">
+        <a-box 
+          cursor-listener
+        position="0 0 1" scale=".1 .1 .1" color="#f00" ></a-box>
+      </a-entity>
+      <a-box 
+        cursor-listener
+      id="box" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+
+      <!-- GUI -->
+  <div class="gui-container">
+    <!-- Reset button -->
+    <button class="button" onclick="resetCamera()">Reset Camera</button>
+    <!-- Toggle cursor button -->
+    <button class="button" onclick="toggleCursor()">Toggle Cursor</button>
+    <button class="button" onclick="toggleCursor()">Add Box</button>
+  </div>
+
+    <script type="module" src="script.js"></script>
+      <script>
+        AFRAME.registerComponent('cursor-listener', {
+          init: function() {
+            var el = this.el;
+            el.addEventListener('click', function(evt) {
+              console.log(el.object3D)
+            })
+          }
+        })
+
+            // Function to reset camera position
+    function resetCamera() {
+      document.getElementById('camera').setAttribute('position', '0 1.6 0');
+    }
+
+    // Function to toggle cursor visibility
+    function toggleCursor() {
+      var camera = document.getElementById('camera');
+      var cursor = camera.getAttribute('cursor');
+      cursor.enabled = !cursor.enabled;
+      camera.setAttribute('cursor', cursor);
+    }
+      </script>
+    </script>
+  </body>
+</html>
