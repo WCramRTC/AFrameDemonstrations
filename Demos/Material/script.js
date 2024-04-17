@@ -37,7 +37,7 @@ scene.add(light)
 scene.add(lightHelper)
 
 const ambientlight = new THREE.AmbientLight(0xffffff,.9)
-const ambientlightHelper = new THREE.DirectionalLightHelper(light, 1, 0x00ff00)
+// const ambientlightHelper = new THREE.DirectionalLightHelper(light, 1, 0x00ff00)
 
 scene.add(ambientlight)
-scene.add(ambientlightHelper)
+// scene.add(ambientlightHelper)
