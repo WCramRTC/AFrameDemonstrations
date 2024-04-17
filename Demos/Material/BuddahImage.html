@@ -9,7 +9,9 @@
     <a-scene id="scene">
         <a-entity light></a-entity>
         <!-- <a-entity camera position="0 1.6 0" movement-controls look-controls></a-entity> -->
-        <a-camera universal-controls="movementControls: touch; touchEnabled: true;"></a-camera>
+        <a-entity id="rig" position="0 1.6 0">
+            <a-camera universal-controls="movementControls: touch; touchEnabled: true;"></a-camera>
+        </a-entity>
 
       <a-sky color="#ECECEC"></a-sky>
     </a-scene>
